@@ -9,7 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "online": "PORT=3080 NODE_ENV=online forever start -a -l /data/logs/weixin.log ./bin/www -e"
   },
   "repository": {
     "type": "git",
