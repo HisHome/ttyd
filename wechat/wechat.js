@@ -45,6 +45,48 @@ var WeChat = function (config) {
             });
         });
     }
+
+    //用于处理 https Post请求方法
+    this.requestPost = function(url,data){
+        return new Promise(function(resolve,reject){
+            //解析 url 地址
+            var urlData = urltil.parse(url);
+            //设置 https.request  options 传入的参数对象
+            var options={
+                //目标主机地址
+                hostname: urlData.hostname, 
+                //目标地址 
+                path: urlData.path,
+                //请求方法
+                method: 'POST',
+                //头部协议
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Length': Buffer.byteLength(data,'utf-8')
+                }
+            };
+            var req = https.request(options,function(res){
+                var buffer = [],result = '';
+                //用于监听 data 事件 接收数据
+                res.on('data',function(data){
+                    buffer.push(data);
+                });
+                 //用于监听 end 事件 完成数据的接收
+                res.on('end',function(){
+                    result = Buffer.concat(buffer).toString('utf-8');
+                    resolve(result);
+                })
+            })
+            //监听错误事件
+            .on('error',function(err){
+                console.log(err);
+                reject(err);
+            });
+            //传入数据
+            req.write(data);
+            req.end();
+        });
+    }
 }
 
 
@@ -52,6 +94,18 @@ var WeChat = function (config) {
  * 微信接入验证
  */
 WeChat.prototype.auth = function (req, res) {
+
+    var that = this;
+    this.getAccessToken().then(function (data) {
+        //格式化请求连接
+        var url = util.format(that.apiURL.createMenu, that.apiDomain, data);
+        //使用 Post 请求创建微信菜单
+        that.requestPost(url, JSON.stringify(menus)).then(function (data) {
+            //将结果打印
+            console.log(data);
+        });
+    });
+
     //1.获取微信服务器Get请求的参数 signature、timestamp、nonce、echostr
     var signature = req.query.signature,//微信加密签名
         timestamp = req.query.timestamp,//时间戳
