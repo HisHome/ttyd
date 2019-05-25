@@ -1,5 +1,5 @@
 {
-  "name": "wechat",
+  "name": "ttyd",
   "version": "1.0.0",
   "description": "使用 Node.js开发微信",
   "main": "app.js",
@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SilenceHVK/wechatByNode.git"
+    "url": "git+https://github.com/py129/ttyd.git"
   },
-  "author": "H-VK",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SilenceHVK/wechatByNode/issues"
+    "url": "https://github.com/py129/ttyd/issues"
   },
-  "homepage": "https://github.com/SilenceHVK/wechatByNode#readme"
+  "homepage": "https://github.com/py129/ttyd#readme"
 }
