@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
     // } else {
     //     res.send('mismatch');
     // }
-    res.send('hello 3080');
+    res.send('hello 3200');
 });
 //监听3000端口
-app.listen(3080);
+app.listen(3200);
