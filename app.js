@@ -6,12 +6,12 @@ var app = express();//实例express框架
 
 var wechatApp = new wechat(config); //实例wechat 模块
 
-//用于处理所有进入 3200 端口 get 的连接请求
+//用于处理所有进入 3080 端口 get 的连接请求
 app.get('/',function(req,res){
     wechatApp.auth(req,res);
 });
 
-//用于处理所有进入 3200 端口 post 的连接请求
+//用于处理所有进入 3080 端口 post 的连接请求
 app.post('/',function(req,res){
     wechatApp.handleMsg(req,res);
 });
@@ -24,4 +24,4 @@ app.get('/getAccessToken',function(req,res){
 });
 
 //监听3200端口
-app.listen(3200);
+app.listen(3080);
