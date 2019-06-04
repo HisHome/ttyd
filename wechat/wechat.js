@@ -213,7 +213,7 @@ WeChat.prototype.handleMsg = function (req, res) {
                         case 'pic_sysphoto':
                             //系统拍照发图
                             var content = "欢迎给我发图片啊！ \n";
-                            reportMsg = msg.picMsg(fromUser, toUser, content);
+                            reportMsg = msg.txtMsg(fromUser, toUser, content);
                             break;
                         case 'subscribe':
                             //回复消息
