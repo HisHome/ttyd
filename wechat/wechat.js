@@ -210,6 +210,11 @@ WeChat.prototype.handleMsg = function (req, res) {
                 if (result.MsgType.toLowerCase() === "event") {
                     //判断事件类型
                     switch (result.Event.toLowerCase()) {
+                        case 'pic_sysphoto':
+                            //系统拍照发图
+                            var content = "欢迎给我发图片啊！ \n";
+                            reportMsg = msg.txtMsg(fromUser, toUser, content);
+                            break;
                         case 'subscribe':
                             //回复消息
                             var content = "欢迎关注 hvkcoder 公众号，一起斗图吧。回复以下数字：\n";

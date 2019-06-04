@@ -39,4 +39,3 @@ exports.graphicMsg = function(toUser,fromUser,contentArr){
         xmlContent += "</Articles></xml>";
     return xmlContent;
 }
-
