@@ -232,6 +232,10 @@ WeChat.prototype.handleMsg = function (req, res) {
                             //回复图文消息
                             reportMsg = msg.graphicMsg(fromUser, toUser, contentArr);
                             break;
+                        default:
+                            var content = "欢迎给我发图片啊！ \n" + result.Event.toLowerCase();
+                            reportMsg = msg.txtMsg(fromUser, toUser, content);
+                            break;
                     }
                 } else {
                     //判断消息类型为 文本消息
