@@ -39,3 +39,25 @@ exports.graphicMsg = function(toUser,fromUser,contentArr){
         xmlContent += "</Articles></xml>";
     return xmlContent;
 }
+
+/**
+ * 弹出系统拍照发图的事件推送
+ * @param {String} toUser 接收用户
+ * @param {String} fromUser 发送用户
+ * @param {Array}  contentArr 图文信息集合
+ */
+exports.picMsg = function(toUser,fromUser,contentArr){
+    var xmlContent =  "<xml><ToUserName><![CDATA["+ toUser +"]]></ToUserName>";
+       xmlContent += "<FromUserName><![CDATA["+ fromUser +"]]></FromUserName>";
+       xmlContent += "<CreateTime>"+ new Date().getTime() +"</CreateTime>";
+       xmlContent += "<MsgType><![CDATA[event]]></MsgType>";
+       xmlContent += "<Event><![CDATA[pic_sysphoto]]></Event>";
+       xmlContent += "<SendPicsInfo><Count>1</Count><PicList>";
+       contentArr.map(function(item,index){
+           xmlContent+="<item>";
+           xmlContent+="<PicMd5Sum><![CDATA["+ item +"]]></PicMd5Sum>";
+           xmlContent+="</item>";
+       });
+       xmlContent += "</PicList></SendPicsInfo></xml>";
+   return xmlContent;
+}
