@@ -212,7 +212,8 @@ WeChat.prototype.handleMsg = function (req, res) {
                     switch (result.Event.toLowerCase()) {
                         case 'pic_sysphoto':
                             //系统拍照发图
-                            reportMsg = msg.picMsg(fromUser, toUser, result.PicList);
+                            var content = "欢迎给我发图片啊！ \n";
+                            reportMsg = msg.picMsg(fromUser, toUser, content);
                             break;
                         case 'subscribe':
                             //回复消息
@@ -232,7 +233,7 @@ WeChat.prototype.handleMsg = function (req, res) {
                             reportMsg = msg.graphicMsg(fromUser, toUser, contentArr);
                             break;
                         default:
-                            var content = "欢迎给我发图片啊！ \n" + result.Event.toLowerCase();
+                            var content = "欢迎新的操作！ \n" + result.Event.toLowerCase();
                             reportMsg = msg.txtMsg(fromUser, toUser, content);
                             break;
                     }
