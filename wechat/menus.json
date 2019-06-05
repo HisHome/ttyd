@@ -3,7 +3,15 @@
         {	
           "type":"view",
           "name":"ipooy",
-           "url":"https://www.m.ipooy.com"
+           "sub_button":[{
+                "type": "view", 
+                "name": "ipooy",
+                "url":"https://www.m.ipooy.com"
+            },{
+                "type": "view", 
+                "name": "微信",
+                "url":"https://www.m.ipooy.com"
+            }]
         },
         {	
           "type":"click",
