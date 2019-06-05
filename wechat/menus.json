@@ -1,7 +1,6 @@
 {
      "button":[
         {	
-          "type":"view",
           "name":"ipooy",
            "sub_button":[{
                 "type": "view", 
@@ -10,7 +9,7 @@
             },{
                 "type": "view", 
                 "name": "微信",
-                "url":"https://www.m.ipooy.com"
+                "url":"https://www.ipooy.com"
             }]
         },
         {	
