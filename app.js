@@ -3,6 +3,7 @@ const express = require('express'), //express 框架
        config = require('./config');//引入配置文件
        
 var routes = require('./routes/index');
+var path = require('path');
 
 
 var app = express();//实例express框架
