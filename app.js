@@ -25,5 +25,5 @@ app.get('/getAccessToken',function(req,res){
     });    
 });
 
-//监听3200端口
+//监听3080端口
 app.listen(3080);
